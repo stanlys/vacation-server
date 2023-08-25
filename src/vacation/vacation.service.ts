@@ -11,4 +11,12 @@ export class VacationService {
     console.log('add', vacation);
     return this.vacationRepository.save(vacation);
   }
+
+  getAllVacation(): Promise<Array<Vacation>> {
+    return this.vacationRepository.find();
+  }
+
+  getVacationsByYear(year: string): Promise<Array<Vacation>> | null {
+    return null;
+  }
 }
