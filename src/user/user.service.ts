@@ -16,8 +16,9 @@ export class UserService {
     return this.userRepository.save(user);
   }
 
-  async removeUser(user: User): Promise<void> {
-    await this.userRepository.remove(user);
+  async removeUser(userId: number): Promise<void> {
+    const user = await this.findOne(userId);
+    if (user !== null) await this.userRepository.remove(user);
   }
 
   async update(user: User): Promise<void> {
@@ -26,5 +27,9 @@ export class UserService {
 
   async findOne(userId: number): Promise<User | null> {
     return await this.userRepository.findOneBy({ id: userId });
+  }
+
+  async findByNamePassword(name: string, password: string): Promise<User | null> {
+    return await this.userRepository.findOneBy({ name, password });
   }
 }

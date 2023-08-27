@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Param, Post } from '@nestjs/common';
+import { Body, Controller, Get, Param, Post, Query, Req } from '@nestjs/common';
 import { Vacation } from './vacation.entity';
 import { VacationService } from './vacation.service';
 
@@ -14,8 +14,12 @@ export class VacationController {
   @Get()
   async getVacationsAll(): Promise<Array<Vacation>> {
     console.log('get vacation');
-    // return 'Get all vacations';
     return this.vacationService.getAllVacation();
+  }
+
+  @Get()
+  getVacationByUser(@Query('userID') userID: string, @Query('year') year: string) {
+    console.log(userID, '   ---  ', year);
   }
 
   @Get(':year')
