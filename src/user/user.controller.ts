@@ -8,7 +8,6 @@ export class UserController {
 
   @Get()
   getUsers(@Query('name') name: string, @Query('password') password: string) {
-    // return this.userService.findAll();
     return this.userService.findByNamePassword(name, password);
   }
 
