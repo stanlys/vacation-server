@@ -4,6 +4,10 @@ import { AppService } from './app.service';
 import { UserModule } from './user/user.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { VacationModule } from './vacation/vacation.module';
+import { AuthModule } from './auth/auth.module';
+import { ProductModule } from './product/product.module';
+import { ReviewModule } from './review/review.module';
+import { TopPageModule } from './top-page/top-page.module';
 
 @Module({
   imports: [
@@ -15,6 +19,10 @@ import { VacationModule } from './vacation/vacation.module';
       synchronize: true,
     }),
     VacationModule,
+    AuthModule,
+    ProductModule,
+    ReviewModule,
+    TopPageModule,
   ],
   controllers: [AppController],
   providers: [AppService],
