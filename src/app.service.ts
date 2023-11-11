@@ -1,8 +1,11 @@
 import { Injectable } from '@nestjs/common';
+import { ConfigService } from '@nestjs/config';
 
 @Injectable()
 export class AppService {
+  constructor(private readonly configService: ConfigService) {}
+
   getHello(): string {
-    return 'Vacation Server!';
+    return `Vacation Server! ${this.configService.get('DATABASE_USER')}`;
   }
 }

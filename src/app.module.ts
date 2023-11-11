@@ -8,10 +8,12 @@ import { AuthModule } from './auth/auth.module';
 import { ProductModule } from './product/product.module';
 import { ReviewModule } from './review/review.module';
 import { TopPageModule } from './top-page/top-page.module';
+import { ConfigModule } from '@nestjs/config';
 
 @Module({
   imports: [
     UserModule,
+    ConfigModule.forRoot(),
     TypeOrmModule.forRoot({
       type: 'sqlite',
       database: __dirname + '/DB/users.db',
