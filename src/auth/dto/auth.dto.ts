@@ -1,5 +1,8 @@
-export class AuthDTO {
-  public login: string;
+import { IUserRole } from '../auth.interface';
 
-  public passwordHash: string;
+export class AuthDTO {
+  name: string;
+  surname: string;
+  role: IUserRole;
+  clubs: Array<string>;
 }
